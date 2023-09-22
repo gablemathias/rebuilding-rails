@@ -15,6 +15,14 @@ module Rulers
       expect(last_response.body).to include("Hello")
     end
 
+    it "doesn't have an empty body" do
+      get "/"
+
+      body = last_response.body
+
+      expect(body).not_to be(body.empty?)
+    end
+
     it "has a version number" do
       expect(Rulers::VERSION).not_to be nil
     end

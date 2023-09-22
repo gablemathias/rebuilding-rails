@@ -9,8 +9,12 @@ module Rulers
   class Application
     def call(env)
       `echo debug > debug.txt`;
-      [200, {'Content-Type' => 'text/html'},
-      ["Hello from Ruby on Rulers! Did you see how amazing it is?"]]
+
+      status = 200
+      headers = {'Content-Type' => 'text/html'}
+      body = ["Hello from Ruby on Rulers! Did you see how amazing it is?"]
+
+      [status, headers, body]
     end
   end
 end
