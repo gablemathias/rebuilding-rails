@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 require_relative "rulers/version"
+require "rulers/array.rb"
 
 module Rulers
   class Error < StandardError; end
-  
+
   class Application
     def call(env)
       `echo debug > debug.txt`;
@@ -13,4 +14,3 @@ module Rulers
     end
   end
 end
-
