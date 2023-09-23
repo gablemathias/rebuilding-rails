@@ -12,7 +12,7 @@ module Rulers
       # `echo debug > debug.txt`;
       klass, act = get_controller_and_action(env)
       controller = klass.new(env)
-      text = controller.send(act)
+      text = [controller.send(act)]
 
       status = 200
       headers = {'Content-Type' => 'text/html'}
