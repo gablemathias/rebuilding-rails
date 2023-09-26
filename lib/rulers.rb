@@ -10,12 +10,12 @@ module Rulers
   class Application
     def call(env)
       if env['PATH_INFO'] == '/favicon.ico'
-        return [404, {"ContentType" => "text/html"}, []]
+        return [404, {"Content-Type" => "text/html"}, []]
       end
 
       if env['PATH_INFO'] == '/'
-        controller = QuotesController.new(env)
-        return [200, {'ContentType' => 'text/html'}, [controller.send('a_quote')]]
+        controller = HomeController.new(env)
+        return [200, {'Content-Type' => 'text/html'}, [controller.send('index')]]
       end
 
       klass, act = get_controller_and_action(env)
@@ -24,7 +24,7 @@ module Rulers
       begin
         [controller.send(act)]
       rescue
-        return [500, {"ContentType" => "text/html"}, []]
+        return [500, {"Content-Type" => "text/html"}, []]
       end
 
 
