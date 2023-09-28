@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 require_relative "rulers/version"
-require "rulers/array.rb"
+require "rulers/array"
 require "rulers/routing"
+require "rulers/util"
+require "rulers/dependencies"
 
 module Rulers
   class Error < StandardError; end
